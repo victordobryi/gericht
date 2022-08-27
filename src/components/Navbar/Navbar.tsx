@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import './Navbar.scss';
-import images from '../../constants/images';
+import logo from '../../assets/gericht.png';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="_container">
         <nav className="app__navbar">
           <div className="app__navbar-logo">
-            <img src={images.gericht} alt="logo" />
+            <img src={logo} alt="logo" />
           </div>
           <ul className="app__navbar-links">
             <li className="p__opensans">
