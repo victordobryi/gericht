@@ -1,0 +1,83 @@
+.app__navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-component {
+    background: var(--color-black);
+  }
+  &-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    & img {
+      width: 150px;
+    }
+  }
+  &-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & li {
+      margin: 0 1rem;
+    }
+    & a {
+      &:hover {
+        color: var(--color-grey);
+      }
+    }
+  }
+  &-login {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    & a {
+      margin: 0 1rem;
+      transition: 0.5 ease;
+      &:hover {
+        border-bottom: 1px solid var(--color-golden);
+      }
+    }
+    & div {
+      width: 1px;
+      height: 30px;
+      background-color: var(--color-grey);
+    }
+  }
+  &-smallscreen {
+    display: none;
+    &_overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-black);
+      transition: 0.5s ease;
+      flex-direction: column;
+      z-index: 5;
+      & .overlay__close {
+        font-size: 27px;
+        color: var(--color-golden);
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
+    &_links {
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .app__navbar {
+    &-links {
+      display: none;
+    }
+    &-smallscreen {
+      display: flex;
+    }
+  }
+}
