@@ -1,0 +1,61 @@
+.slider {
+  &__container {
+    overflow: hidden;
+    position: relative;
+    margin-top: 25px;
+  }
+  &__track {
+    display: flex;
+    transition: 0.2s;
+  }
+  &__buttons {
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    & button {
+      margin: 0 2rem;
+      color: var(--color-golden);
+      font-size: 2rem;
+      background-color: var(--color-black);
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+  }
+  &__item {
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .slider {
+    &__container {
+      margin-right: 4rem;
+    }
+    &__buttons {
+      & button {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .slider {
+    &__container {
+      margin-right: 2rem;
+    }
+  }
+}

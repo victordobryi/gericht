@@ -1,31 +1,11 @@
-import React, { useRef } from 'react';
-import {
-  BsInstagram,
-  BsArrowLeftShort,
-  BsArrowRightShort
-} from 'react-icons/bs';
+import React from 'react';
+
 import { SubHeading } from '../../components';
-import { images } from '../../constants';
+import Slider from '../../components/Slider/Slider';
 
 import './Gallery.scss';
 
-const { gallery01, gallery02, gallery03, gallery04 } = images;
-
-const imagesArr = [gallery01, gallery02, gallery03, gallery04];
-
 const Gallery = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: string) => {
-    const { current } = scrollRef;
-
-    if (direction === 'left') {
-      current!.scrollLeft -= 300;
-    } else {
-      current!.scrollLeft += 300;
-    }
-  };
-
   return (
     <div className="app__gallery flex__center">
       <div className="app__gallery-content">
@@ -37,29 +17,15 @@ const Gallery = () => {
         </p>
         <button className="custom__button">View More</button>
       </div>
-      <div className="app__gallery-images">
-        <div className="app__gallery-images_container" ref={scrollRef}>
-          {imagesArr.map((image, index) => (
-            <div
-              key={`gallery_image-${index + 1}`}
-              className="app__gallery-images_card flex__center"
-            >
-              <img src={image} alt="gallery" />
-              <BsInstagram className="gallery__image-icon" />
-            </div>
-          ))}
-        </div>
-        <div className="app__gallery-images_arrows">
-          <BsArrowLeftShort
-            className="gallery__arrow-icon"
-            onClick={() => scroll('left')}
-          />
-          <BsArrowRightShort
-            className="gallery__arrow-icon"
-            onClick={() => scroll('right')}
-          />
-        </div>
-      </div>
+      <Slider
+        itemHeight={447}
+        slidesToShow={3}
+        slidesToScroll={1}
+        marginRight={20}
+        sliderContainerWidth={1000}
+        prev="←"
+        next="→"
+      />
     </div>
   );
 };
